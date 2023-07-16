@@ -1,2 +1,2 @@
-print ("Welocme to Jenkins proect by karthick")
+print ("Welocme to Jenkins project by karthick")
 print ("Enjoy the DevOps concepts")
