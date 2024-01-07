@@ -33,13 +33,13 @@ pipeline {
       environment {
         DOCKER_IMAGE = "karthickdk02/cicd-project:${BUILD_NUMBER}"
         // DOCKERFILE_LOCATION = "app-files/Dockerfile"
-        REGISTRY_CREDENTIALS = credentials('docker-cred')
+        REGISTRY_CREDENTIALS = credentials('docker-cert')
       }
       steps {
         script {
             sh 'cd app-files && docker build -t ${DOCKER_IMAGE} .'
             def dockerImage = docker.image("${DOCKER_IMAGE}")
-            docker.withRegistry('https://index.docker.io/v2/', "docker-cred") {
+            docker.withRegistry('https://index.docker.io/v2/', "docker-cert") {
                 dockerImage.push()
             }
         }
