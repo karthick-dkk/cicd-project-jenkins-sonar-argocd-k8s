@@ -36,10 +36,10 @@ pipeline {
        //  REGISTRY_CREDENTIALS = credentials('docker-cert')
       }
       steps {
-        withCredentials([string(credentialsId: 'docker-key', variable: 'DOCKER-CERT')]) {
+        withCredentials([string(credentialsId: 'docker-key', variable: 'DOCKER_CERT')]) {
         script {
             sh 'cd app-files && docker build -t ${DOCKER_IMAGE} .'
-            sh 'docker login -u "karthickdk02" -p "${DOCKER-CERT}" docker.io'
+            sh 'docker login -u "karthickdk02" -p "${DOCKER_CERT}" docker.io'
             sh 'docker tag ${DOCKER_IMAGE} ${DOCKER_IMAGE}'
             sh 'docker push ${DOCKER_IMAGE}'
   
