@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: app-cicd
-        image: karthickdk02/cicd-project:1
+        image: karthickdk02/cicd-project:replaceImageTag
         ports:
         - containerPort: 8008
